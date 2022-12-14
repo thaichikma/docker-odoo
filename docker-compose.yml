@@ -17,11 +17,11 @@ services:
     depends_on:
       - db
     ports:
-      - "8068:8069"
-      - "8072:8072" # live chat
+      - "10012:8069"
+      - "20012:8072" # live chat
     tty: true
     command: --
-#    command: odoo scaffold /mnt/extra-addons/test_module
+#    command: odoo -u all -d odoo-prod
     environment:
       - HOST=db
       - USER=odoo
