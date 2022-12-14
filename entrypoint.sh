@@ -12,8 +12,6 @@ set -e
 # install python packages
 pip3 install pip --upgrade
 pip3 install -r /etc/odoo/requirements.txt
-pip3 install paramiko==2.7.2
-pip3 install genshi relatorio py3o.template py3o.formats PyPDF2
 
 # sed -i 's|raise werkzeug.exceptions.BadRequest(msg)|self.jsonrequest = {}|g' /usr/lib/python3/dist-packages/odoo/http.py
 
@@ -21,7 +19,7 @@ DB_ARGS=()
 function check_config() {
     param="$1"
     value="$2"
-    if grep -q -E "^\s*\b${param}\b\s*=" "$ODOO_RC" ; then
+    if grep -q -E "^\s*\b${param}\b\s*=" "$ODOO_RC" ; then       
         value=$(grep -E "^\s*\b${param}\b\s*=" "$ODOO_RC" |cut -d " " -f3|sed 's/["\n\r]//g')
     fi;
     DB_ARGS+=("--${param}")

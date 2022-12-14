@@ -21,7 +21,7 @@ services:
       - "20012:8072" # live chat
     tty: true
     command: --
-#    command: odoo -u all -d odoo-prod
+#    command: odoo scaffold /mnt/extra-addons/test_module
     environment:
       - HOST=db
       - USER=odoo
