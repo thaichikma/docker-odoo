@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: postgres:9.5
+    image: postgres:13
     user: root
     environment:
       - POSTGRES_PASSWORD=odoo
@@ -11,8 +11,8 @@ services:
     volumes:
       - ./postgresql:/var/lib/postgresql/data
 
-  odoo12:
-    image: odoo:12
+  odoo14:
+    image: odoo:14.0
     user: root
     depends_on:
       - db
