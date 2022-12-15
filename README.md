@@ -107,7 +107,7 @@ docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
 ```
 
 More info: https://docs.docker.com/engine/reference/commandline/inspect/
-Examples:
+# Examples:
 $ **docker ps**
 
 ``` bash
