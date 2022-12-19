@@ -1,13 +1,17 @@
 # Quick install
 
-Installing Odoo 14 with one command.
+Installing Odoo 15 with one command.
 
 (Supports multiple Odoo instances on one server)
 
 Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run:
-
 ``` bash
-curl -s https://raw.githubusercontent.com/thaichikma/docker-odoo/14.0/run.sh | sudo bash -s odoo-one 10012 20012
+sudo apt update && apt upgrade
+sudo apt install docker docker-compose -y
+```
+Then
+``` bash
+curl -s https://raw.githubusercontent.com/thaichikma/docker-odoo/15.0/run.sh | sudo bash -s odoo-one 10012 20012
 ```
 
 to set up first Odoo instance @ `localhost:10012` (default master password: `Masterpass`)
@@ -15,7 +19,7 @@ to set up first Odoo instance @ `localhost:10012` (default master password: `Mas
 and
 
 ``` bash
-curl -s https://raw.githubusercontent.com/thaichikma/docker-odoo/14.0/run.sh | sudo bash -s odoo-two 11012 21012
+curl -s https://raw.githubusercontent.com/thaichikma/docker-odoo/15.0/run.sh | sudo bash -s odoo-two 11012 21012
 ```
 
 to set up another Odoo instance @ `localhost:11012` (default master password: `Masterpass`)
