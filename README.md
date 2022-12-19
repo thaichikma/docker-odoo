@@ -1,13 +1,17 @@
 # Quick install
 
-Installing Odoo 12 with one command.
+Installing Odoo 15 with one command.
 
 (Supports multiple Odoo instances on one server)
 
 Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run:
-
 ``` bash
-curl -s https://raw.githubusercontent.com/thaichikma/docker-odoo/master/run.sh | sudo bash -s odoo-one 10012 20012
+sudo apt update && apt upgrade
+sudo apt install docker docker-compose -y
+```
+Then
+``` bash
+curl -s https://raw.githubusercontent.com/thaichikma/docker-odoo/15.0/run.sh | sudo bash -s odoo-one 10012 20012
 ```
 
 to set up first Odoo instance @ `localhost:10012` (default master password: `Masterpass`)
@@ -15,7 +19,7 @@ to set up first Odoo instance @ `localhost:10012` (default master password: `Mas
 and
 
 ``` bash
-curl -s https://raw.githubusercontent.com/thaichikma/docker-odoo/master/run.sh | sudo bash -s odoo-two 11012 21012
+curl -s https://raw.githubusercontent.com/thaichikma/docker-odoo/15.0/run.sh | sudo bash -s odoo-two 11012 21012
 ```
 
 to set up another Odoo instance @ `localhost:11012` (default master password: `Masterpass`)
@@ -56,7 +60,7 @@ docker-compose up -d
 **If you get the permission issue**, change the folder permission to make sure that the container is able to access the directory:
 
 ``` sh
-$ git clone https://github.com/thaichikma/docker-odoo
+$ git clone https://github.com/thaichikma/docker-odoo/$version
 $ sudo chmod -R 777 addons
 $ sudo chmod -R 777 etc
 $ mkdir -p postgresql
@@ -100,6 +104,32 @@ docker-compose restart
 docker-compose down
 ```
 
+**Docker commit**:
+
+``` bash
+docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+```
+
+More info: https://docs.docker.com/engine/reference/commandline/inspect/
+# Examples:
+$ **docker ps**
+
+``` bash
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS              NAMES
+c3f279d17e0a        ubuntu:12.04        /bin/bash           7 days ago          Up 25 hours                            desperate_dubinsky
+197387f1b436        ubuntu:12.04        /bin/bash           7 days ago          Up 25 hours                            focused_hamilton
+```
+**docker commit c3f279d17e0a  svendowideit/testimage:version3**
+``` bas
+f5283438590d
+```
+$ **docker images**
+
+``` bas
+REPOSITORY                        TAG                 ID                  CREATED             SIZE
+svendowideit/testimage            version3            f5283438590d        16 seconds ago      335.7 MB
+```
+
 # Live chat
 
 In [docker-compose.yml#L21](docker-compose.yml#L21), we exposed port **20012** for live-chat on host.
@@ -117,9 +147,13 @@ server {
 }
 #...
 ```
-
+# **Docker Portainer**
+* Install
+``` bas
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```
 # docker-compose.yml
 
-* odoo:12.0
-* postgres:9.5
+* odoo:14.0
+* postgres:13
 
