@@ -154,6 +154,6 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /va
 ```
 # docker-compose.yml
 
-* odoo:14.0
+* odoo:15.0
 * postgres:13
 
