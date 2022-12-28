@@ -109,6 +109,27 @@ docker-compose down
 ``` bash
 docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
 ```
+**Docker push**:
+
+``` bash
+docker push [OPTIONS] NAME[:TAG]
+
+docker docker push thaichikma/image
+```
+**Docker save**:
+
+``` bash
+docker save [OPTIONS] IMAGE [IMAGE...]
+
+docker save image > image.zip
+```
+**Docker Load**:
+
+``` bash
+docker load [OPTIONS]
+
+docker load < image.zip
+```
 
 More info: https://docs.docker.com/engine/reference/commandline/inspect/
 # Examples:
