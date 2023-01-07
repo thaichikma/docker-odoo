@@ -103,6 +103,32 @@ docker-compose restart
 ``` bash
 docker-compose down
 ```
+**Upgrade pip and install lib paramiko**:
+``` bash
+
+pip install --upgrade pip
+
+#install setuptools.
+
+pip install setuptools==39.1.0
+
+#install pyparser.
+
+pip install pyparser==1.0
+pip install pyparsing==2.1.0
+
+#install cffi.
+
+pip install cffi==1.11.5
+
+#install cryptography.
+
+pip install cryptography==2.2.2
+pip install paramiko
+
+```
+
+
 
 **Docker commit**:
 
