@@ -11,7 +11,7 @@ services:
     volumes:
       - ./postgresql:/var/lib/postgresql/data
 
-  odoo14:
+  odoo:
     image: odoo:16.0
     user: root
     depends_on:
@@ -31,5 +31,5 @@ services:
       #- /etc/localtime:/etc/localtime:ro
       #- ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
       - ./addons:/mnt/extra-addons
-      - ./etc:/etc/odoo
+      - ./etc:/etc/odoo          # odoo file store in etc/files
     restart: always             # run as a service
